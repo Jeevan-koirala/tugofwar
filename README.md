@@ -1,0 +1,1 @@
+The tug of war game is a rope pulling game which i have designed so you guys can play multiplayer as well as with bot also this uses html css javascript for handling multiplayer used socket thats it..Used AI for debuggin and some other stuffs
