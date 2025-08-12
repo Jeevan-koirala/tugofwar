@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover"/>
+  <title>Tug of War — Play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="menu" class="menu visible">
+    <div class="menu-card">
+      <h1 class="logo">Tug of War</h1>
+      <div class="menu-row">
+        <label>Player name
+          <input id="menuName" placeholder="Your name (optional)">
+        </label>
+      </div>
+      <div class="menu-row">
+        <div class="mode-choice">
+          <button id="menuMult" class="menu-btn active">Multiplayer</button>
+          <button id="menuBot" class="menu-btn">Play vs Bots</button>
+        </div>
+      </div>
+      <div class="menu-row">
+        <div class="team-choice">
+          <button id="teamRed" class="team-btn red selected">Red Team</button>
+          <button id="teamBlue" class="team-btn blue">Blue Team</button>
+        </div>
+      </div>
+      <div class="menu-row bot-row hidden">
+        <label>Bot difficulty
+          <select id="menuBotDiff">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+      </div>
+      <div class="menu-row">
+        <button id="startBtn" class="start-btn">Start Game</button>
+      </div>
+      <div class="menu-foot muted">Landscape-friendly. Use left/right touch zones to pull.</div>
+    </div>
+  </div>
+
+  <div id="game" class="game hidden">
+    <div class="topbar">
+      <div class="team-label red">Red <span id="topRedCount">0</span></div>
+      <div class="title">Tug of War</div>
+      <div class="team-label blue">Blue <span id="topBlueCount">0</span></div>
+    </div>
+
+    <div class="play-area">
+      <div id="leftArea" class="touch-area left-area">
+        <div class="touch-hint">Tap here — Pull</div>
+      </div>
+
+      <div class="center-arena">
+        <div class="stadium">
+          <div id="ropeWrap" class="rope-wrap">
+            <div id="ropeVisual" class="rope-visual"></div>
+          </div>
+        </div>
+
+        <div class="meter-row">
+          <div class="meter">
+            <div id="meterFill" class="meter-fill"></div>
+          </div>
+        </div>
+
+        <div class="pull-controls">
+          <button id="pullBtn" class="pull-button">Pull!</button>
+        </div>
+
+        <div id="status" class="status muted">Not joined</div>
+      </div>
+
+      <div id="rightArea" class="touch-area right-area">
+        <div class="touch-hint">Tap here — Pull</div>
+      </div>
+    </div>
+
+    <div class="bottombar">
+      <div class="leaderboard">
+        <span class="lb-title">Leaderboard</span>
+        <span id="lbRed">0</span> : <span id="lbBlue">0</span>
+      </div>
+
+      <div class="controls">
+        <button id="leaveBtn">Leave</button>
+        <button id="backBtn">Back to Menu</button>
+      </div>
+    </div>
+
+    <div id="winBanner" class="win-banner hidden"></div>
+    <canvas id="particles" class="particles"></canvas>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
